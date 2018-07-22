@@ -1,0 +1,29 @@
+<cover class="{ dark: this.isDark }"
+               onclick="{ onClickCover }">
+
+  <script>
+    import CoverMixin from "./cover-mixin";
+    this.mixin(new CoverMixin());
+
+    this.onClickCover = () => {
+      if (opts.onClickCover) {
+        opts.onClickCover();
+      }
+    };
+  </script>
+
+  <style>
+    :scope {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.7;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    :scope.dark {
+      background: black;
+    }
+  </style>
+</cover>

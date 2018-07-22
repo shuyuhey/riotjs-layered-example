@@ -1,0 +1,61 @@
+<modal-content-1>
+
+  <cover on-click-cover="{ onClickCover }"></cover>
+
+  <div class="content">
+    <span>Content1</span>
+    <span>CoverID { tags.cover.coverId }</span>
+
+    <button onclick="{ onClickOpen1 }">Open 1</button>
+    <button onclick="{ onClickOpen2 }">Open 2</button>
+  </div>
+
+  <script>
+    import 'cover/cover.tag.html';
+    import 'modal-content-2/modal-content-2.tag.html';
+
+    const tag = this;
+
+    this.onClickOpen1 = onClickOpen1;
+    this.onClickOpen2 = onClickOpen2;
+    this.onClickCover = onClickCover;
+
+    function onClickOpen1() {
+      const main = document.getElementById('main');
+      const div = document.createElement('div');
+      riot.mount(div, 'modal-content-1');
+      main.appendChild(div);
+    }
+
+    function onClickOpen2() {
+      const main = document.getElementById('main');
+      const div = document.createElement('div');
+      riot.mount(div, 'modal-content-2');
+      main.appendChild(div);
+    }
+
+    function onClickCover() {
+      tag.unmount();
+    }
+
+  </script>
+
+  <style>
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      margin: auto;
+      padding: 16px;
+      border: solid 1px black;
+    }
+
+  </style>
+</modal-content-1>

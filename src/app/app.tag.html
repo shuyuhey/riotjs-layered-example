@@ -1,0 +1,16 @@
+<app>
+  <button onclick="{ onClickOpen }">Open</button>
+
+  <script>
+    import 'modal-content-1/modal-content-1.tag.html';
+
+    this.onClickOpen = onClickOpen;
+
+    function onClickOpen() {
+      const main = document.getElementById('main');
+      const div = document.createElement('div');
+      riot.mount(div, 'modal-content-1');
+      main.appendChild(div);
+    }
+  </script>
+</app>
